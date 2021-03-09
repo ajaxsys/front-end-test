@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="jp">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>日本語</title>
+
+        <!-- CSS -->
+        <style>
+            .test {
+                font-size: 36px;
+            }
+        </style>
+
+        <!-- Javascript -->
+        <script>
+        function alertSometing(msg) {
+            const array = [1, 2, 3, 4, 5, 6]; // const定义常量。 []代表数组
+            let sum = 0; // let 定义变量 （以后就忘记： var 来定义变量）
+            for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                sum = sum + element;
+                
+            }
+            alert(msg + sum); // + 号的用法很暧昧，很可能导致bug
+        }         
+        
+
+        function logSomething(msg, elmt) {
+            console.log(msg, elmt.value);
+            // string自带的
+            // 1) 一些函数：如
+            // replace代表替换1个
+            // 想replace多个就要使用
+            // 2) 正则表达 (如： /内容/g ) g:代表global，全部
+            // 3) 换行符：在内存里面是(\n) windows的时候可能还会多一个(\r\n)
+            document.getElementById('id1').innerHTML = elmt.valu
+                .replace(/\r/g, "") // 去掉所有的windows的可能性
+                .replace(/\n/g, "<br />")
+        }
+        </script>
+    </head>
+
+    <body>
+        <p>p 1 </p>
+        <p>p 2 </p>
+        <p>p 3 </p>
+
+        <div style="
+            width: 300px; 
+            background-color: blue; 
+            color: white;">
+
+            abc<br />
+            def
+            <hr />
+            <h1>h1 example</h1>
+            <h2>h2 example</h2>
+            <h3>h3 example</h3>
+            <h4>h4 example</h4>
+            <h5>h5 example</h5>
+            <h6 class="test">h6 example</h6>
+        </div>
+
+        <!-- JS：传递了string的参数 -->
+        <button onclick="alertSometing('我是按钮')">按钮1</button>
+        <!-- JS：传递了number的参数 -->
+        <button onclick="alertSometing(1)">按钮2</button>
+        <button onclick="alertSometing('9')">按钮3</button>
+
+        <input 
+            type="text" 
+            onchange="logSomething('change', this)"
+            onblur="logSomething('blur', this)"
+            oninput="logSomething('input', this)">
+
+        <textarea name="" id="" cols="30" rows="10"
+            onchange="logSomething('change', this)"
+            onblur="logSomething('blur', this)"
+            oninput="logSomething('input', this)"
+        >
+        </textarea>
+
+        <div id="id1"></div>
+        
+    </body>
+</html>
